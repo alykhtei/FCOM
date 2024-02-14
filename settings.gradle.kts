@@ -15,4 +15,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "FirstCompose"
 include(":app")
- 
+include(":feature")
+include(":feature:settings")
+include(":core")
+include(":core:common")
+include(":core:domain")
