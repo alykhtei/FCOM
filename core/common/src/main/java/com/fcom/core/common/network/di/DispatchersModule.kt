@@ -1,6 +1,7 @@
 package com.fcom.core.common.network.di
 
-import com.fcom.core.common.network.AppDispatchers
+import com.fcom.core.common.network.AppDispatchers.IO
+import com.fcom.core.common.network.AppDispatchers.Default
 import com.fcom.core.common.network.Dispatcher
 import dagger.Module
 import dagger.Provides
@@ -13,10 +14,10 @@ import kotlinx.coroutines.Dispatchers
 @InstallIn(SingletonComponent::class)
 object DispatchersModule {
     @Provides
-    @Dispatcher(AppDispatchers.IO)
+    @Dispatcher(IO)
     fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
-    @Dispatcher(AppDispatchers.Default)
+    @Dispatcher(Default)
     fun provideDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 }
