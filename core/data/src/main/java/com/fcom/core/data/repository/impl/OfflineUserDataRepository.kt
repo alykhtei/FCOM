@@ -9,4 +9,7 @@ import javax.inject.Inject
 internal class OfflineUserDataRepository @Inject constructor() : UserDataRepository {
 
     override val userData: Flow<UserData> = flow { UserData(true) }
+    override suspend fun getUserData(): UserData {
+        TODO("Not yet implemented")
+    }
 }

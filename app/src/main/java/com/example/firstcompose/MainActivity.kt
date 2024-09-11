@@ -9,9 +9,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.firstcompose.ui.theme.FirstComposeTheme
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.fcom.core.designsystem.theme.FirstComposeTheme
 import com.fcom.core.data.managers.NetworkManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -27,10 +29,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            FirstComposeTheme {
+            com.fcom.core.designsystem.theme.FirstComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                    Greeting("Android", viewModel = viewModel)
+
                 }
             }
         }
@@ -38,7 +41,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(name: String, modifier: Modifier = Modifier, viewModel: MainViewModel) {
+    val topicUiState: MainActivityUIState by viewModel.uiState.collectAsStateWithLifecycle()
     Text(
         text = "Hello $name!",
         modifier = modifier
@@ -48,7 +52,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    FirstComposeTheme {
-        Greeting("Android")
+    com.fcom.core.designsystem.theme.FirstComposeTheme {
+        //Greeting("Android", MainViewModel(UserDataRepository(OfflineUserDataRepository())))
     }
 }
