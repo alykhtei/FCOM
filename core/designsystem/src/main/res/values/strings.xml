@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preview_annotation_light_theme">Light Theme</string>
+    <string name="preview_annotation_dark_theme">Dark Theme</string>
+</resources>

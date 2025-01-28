@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.fcom.core.designsystem.icon.FComIcons
-import com.fcom.core.designsystem.theme.FirstComposeTheme
+import com.fcom.core.designsystem.theme.FComTheme
 
 
 @Composable
@@ -63,7 +63,7 @@ fun FComTopAppBar(
 @Preview("Top App Bar")
 @Composable
 private fun FComTopAppBarPreview() {
-    FirstComposeTheme {
+    FComTheme {
         FComTopAppBar(
             titleRes = android.R.string.untitled,
             navigationIcon = FComIcons.Search,

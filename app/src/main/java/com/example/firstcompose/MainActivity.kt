@@ -13,7 +13,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.fcom.core.designsystem.theme.FirstComposeTheme
 import com.fcom.core.data.managers.NetworkManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -29,7 +28,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            com.fcom.core.designsystem.theme.FirstComposeTheme {
+            com.fcom.core.designsystem.theme.FComTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     Greeting("Android", viewModel = viewModel)
@@ -52,7 +51,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier, viewModel: MainViewMod
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    com.fcom.core.designsystem.theme.FirstComposeTheme {
+    com.fcom.core.designsystem.theme.FComTheme {
         //Greeting("Android", MainViewModel(UserDataRepository(OfflineUserDataRepository())))
     }
 }
